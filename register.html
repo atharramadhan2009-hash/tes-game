@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tes game - Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="register-container">
+
+        <div class="logo">Tes Game</div>
+        <h2>Create Account</h2>
+
+        <form id="registerForm">
+
+            <div class="input-group">
+                <input type="text" id="regUsername" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="regEmail" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="regPassword" required>
+                <label>Password</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="regConfirm" required>
+                <label>Confirm Password</label>
+            </div>
+
+            <button type="submit" class="btn-register">REGISTER</button>
+
+            <p class="login-link">
+                Already have account? <a href="login.html">Login</a>
+            </p>
+
+        </form>
+
+        <p id="regMessage"></p>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("regUsername").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+    const confirm = document.getElementById("regConfirm").value;
+    const message = document.getElementById("regMessage");
+
+    if(password !== confirm){
+        message.style.color = "#ff4d4d";
+        message.innerText = "Password tidak sama!";
+        return;
+    }
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    localStorage.setItem("email", email);
+
+    message.style.color = "#00ff88";
+    message.innerText = "Account berhasil dibuat!";
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

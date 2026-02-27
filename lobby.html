@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby - Tes Game</title>
+    <link rel="stylesheet" href="lobby.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-container">
+        <video autoplay muted loop id="bg-video">
+            <source src="screenanimation.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="player-profile" onclick="goPage('profile.html')">
+    <div class="avatar"></div>
+    <div class="player-info">
+        <div class="player-name">ATHAR</div>
+        <div class="player-level">Lv. 57</div>
+    </div>
+</div>
+
+    <input type="file" id="bgInput" accept="image/*" style="display: none;">
+
+    <div class="top-bar">
+        <div class="currency-item">
+            <span class="currency-icon coin-icon"></span>
+            <span>11.362.634</span>
+        </div>
+        <div class="currency-item">
+            <span class="currency-icon diamond-icon"></span>
+            <span>12.320</span>
+        </div>
+    </div>
+
+    <div class="menu-left">
+        <button class="menu-button hero-button" onclick="goPage('hero.html')">
+            <span class="button-icon hero-icon"></span>
+            Hero
+        </button>
+        <button class="menu-button" onclick="goPage('emblem.html')">
+            <span class="button-icon emblem-icon"></span>
+            Emblem
+        </button>
+        <button class="menu-button" onclick="goPage('spell.html')">
+            <span class="button-icon spell-icon"></span>
+            Spell
+        </button>
+        <button class="menu-button" onclick="goPage('items.html')">
+            <span class="button-icon items-icon"></span>
+            Items
+        </button>
+        <button class="menu-button" onclick="goPage('penyimpanan.html')">
+            <span class="button-icon storage-icon"></span>
+            Penyimpanan
+        </button>
+    </div>
+
+    <div class="center-content">
+        <h1>MODE RANK</h1>
+        <button class="play-btn" onclick="goPage('game.html')">START GAME</button>
+    </div>
+
+    <div class="pillar-container">
+        <div class="pillar left-pillar">
+            <div class="flame"></div>
+        </div>
+        <div class="pillar right-pillar">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+<script>
+function goPage(page) {
+    window.location.href = page;
+}
+
+const bgInput = document.getElementById('bgInput');
+
+bgInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            localStorage.setItem('custom-bg', e.target.result);
+            document.body.style.backgroundImage = `url(${e.target.result})`;
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+        }
+        reader.readAsDataURL(file);
+    }
+});
+
+window.onload = function() {
+    const savedBg = localStorage.getItem('custom-bg');
+    if (savedBg) {
+        document.body.style.backgroundImage = `url(${savedBg})`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+    }
+}
+</script>
+
+</body>
+</html>

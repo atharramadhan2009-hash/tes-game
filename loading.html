@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading - Tes Game</title>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="loadingscreen.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="loading-container">
+    <div class="logo">Tes game</div>
+    <div class="spinner"></div>
+    <p id="loadingText">Loading... 0%</p>
+</div>
+
+<script>
+
+const tips = [
+"Gunakan kombinasi skill untuk damage maksimal.",
+"Kerja sama tim lebih penting dari kill.",
+"Upgrade equipment sebelum team fight.",
+"Perhatikan mini map setiap 5 detik.",
+"Legenda mengatakan harta tersembunyi di Valley of Dawn.",
+"Jangan lupa istirahat!!"
+];
+
+const tipText = document.createElement("p");
+tipText.style.marginTop = "20px";
+tipText.style.opacity = "0.9";
+document.querySelector(".loading-container").appendChild(tipText);
+
+function randomTip(){
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    tipText.innerText = tips[randomIndex];
+}
+
+setInterval(randomTip, 2000);
+randomTip();
+
+let percent = 0;
+const text = document.getElementById("loadingText");
+
+const interval = setInterval(() => {
+    percent++;
+    text.innerText = "Loading... " + percent + "%";
+
+    if(percent >= 90){
+        clearInterval(interval);
+        setTimeout(() => {
+            window.location.href = "dashboard.html";
+        }, 3000);
+    }
+
+}, 100);
+
+</script>
+
+</body>
+</html>

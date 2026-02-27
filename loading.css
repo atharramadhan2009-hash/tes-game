@@ -1,0 +1,161 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:url("fantasy-bg.png") no-repeat center center;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+}
+
+.loading-container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:40px;
+    color:#00f5ff;
+}
+
+/* Spinner Animation */
+.spinner{
+    width:80px;
+    height:80px;
+    border:8px solid rgba(255,255,255,0.2);
+    border-top:8px solid #00f5ff;
+    border-radius:50%;
+    margin:0 auto 20px;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+#loadingText{
+    font-size:18px;
+}
+
+body{
+    margin:0;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+}
+
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5); /* atur gelapnya */
+    z-index:-1;
+}
+
+.loading-container{
+    position:relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    color:white;
+}
+
+/* VIDEO BACKGROUND */
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* DARK OVERLAY */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+/* CONTENT */
+.loading-container{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.logo{
+    font-size:40px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.spinner{
+    width:80px;
+    height:80px;
+    border:8px solid rgba(255,255,255,0.2);
+    border-top:8px solid cyan;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin-bottom:20px;
+}
+
+@keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}

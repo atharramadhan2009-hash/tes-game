@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Buat Profile - Tes Game</title>
+<link rel="stylesheet" href="profil.css">
+</head>
+
+<body>
+
+<div class="background">
+    <div class="profile-box">
+
+        <h2>Buat Profile Player</h2>
+
+        <div class="avatar-select"></div>
+
+        <input type="text" id="playerName" class="input-field" placeholder="Masukkan Nama Player" required>
+
+        <input type="password" id="password" class="input-field" placeholder="Masukkan Password" required>
+
+        <input type="password" id="confirmPassword" class="input-field" placeholder="Konfirmasi Password" required>
+
+        <button class="btn-create" onclick="createProfile()">MASUK GAME</button>
+
+        <p id="msg"></p>
+
+    </div>
+</div>
+
+<script>
+function createProfile(){
+
+    const name = document.getElementById("playerName").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const msg = document.getElementById("msg");
+
+    if(name === ""){
+        msg.innerText = "Nama wajib diisi";
+        msg.style.color = "red";
+        return;
+    }
+
+    if(password.length < 4){
+        msg.innerText = "Password minimal 4 karakter";
+        msg.style.color = "red";
+        return;
+    }
+
+    if(password !== confirmPassword){
+        msg.innerText = "Password tidak sama";
+        msg.style.color = "red";
+        return;
+    }
+
+    const profile = {
+        name: name,
+        password: password, 
+        level: 1,
+        xp: 0,
+        coins: 1000,
+        diamonds: 50
+    };
+
+    localStorage.setItem("playerProfile", JSON.stringify(profile));
+    window.location.href = "loadingscreen.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tes Game</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="particles">
+<span style="left:10%;animation-delay:0s"></span>
+<span style="left:20%;animation-delay:2s"></span>
+<span style="left:30%;animation-delay:4s"></span>
+<span style="left:40%;animation-delay:1s"></span>
+<span style="left:50%;animation-delay:3s"></span>
+<span style="left:60%;animation-delay:5s"></span>
+<span style="left:70%;animation-delay:2s"></span>
+<span style="left:80%;animation-delay:4s"></span>
+<span style="left:90%;animation-delay:1s"></span>
+</div>
+
+<div class="logo">
+<h1>Tes Game</h1>
+<div class="tagline">MULTIPLAYER BATTLE ARENA</div>
+
+<div class="loading">
+<span></span>
+</div>
+</div>
+
+<script>
+
+setTimeout(() => {
+
+const profileExists = localStorage.getItem("playerProfile");
+
+if(profileExists){
+    window.location.href = "lobby.html";
+} else {
+    window.location.href = "profil.html";
+}
+
+}, 2500);
+
+</script>
+
+</body>
+</html>

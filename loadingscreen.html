@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Loading - Tes Game</title>
+<link rel="stylesheet" href="loadingscreen.css">
+</head>
+
+<body>
+
+<div class="loading-container">
+
+    <div class="logo">Tes Game</div>
+
+    <div class="loading-bar">
+        <div class="loading-progress" id="progress"></div>
+    </div>
+
+    <p class="loading-text" id="loadingText">Memuat Data...</p>
+
+</div>
+
+<script>
+let width = 0;
+const progress = document.getElementById("progress");
+const text = document.getElementById("loadingText");
+
+const interval = setInterval(() => {
+    width += 2;
+    progress.style.width = width + "%";
+
+    if(width >= 30) text.innerText = "Menyiapkan Sistem...";
+    if(width >= 60) text.innerText = "Memuat Profile...";
+    if(width >= 90) text.innerText = "Masuk Lobby...";
+
+    if(width >= 100){
+        clearInterval(interval);
+        window.location.href = "lobby.html";
+    }
+
+}, 60);
+</script>
+
+</body>
+</html>

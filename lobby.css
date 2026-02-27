@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --gold-color: #ffd700;
+    --light-blue-glow: #00bfff;
+    --text-color: #ffffff;
+    --shadow-dark: rgba(0,0,0,0.7);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+.background-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+/* TOP BAR */
+.top-bar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.currency-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold-color);
+    font-weight: bold;
+}
+
+.currency-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.diamond-icon { background-image: url('assets/argadiamond.png'); }
+
+/* MENU LEFT */
+.menu-left {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-button {
+    width: 190px;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #eaeaea;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(6px);
+}
+
+.menu-button:hover {
+    background: rgba(0,191,255,0.12);
+    border: 1px solid rgba(0,191,255,0.4);
+    color: #ffffff;
+}
+
+.menu-button:active {
+    transform: scale(0.97);
+}
+
+.button-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+}
+
+/* CENTER */
+.center-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.center-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;
+    color: var(--gold-color);
+    text-shadow: 0 0 15px gold;
+}
+
+.play-btn {
+    margin-top: 20px;
+    padding: 15px 60px;
+    font-size: 1.5em;
+    font-family: 'Orbitron';
+    background: linear-gradient(#007bff,#003d80);
+    border: 3px solid var(--gold-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+/* PILLAR */
+.pillar-container {
+    position: absolute;
+    bottom: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
+}
+
+.pillar {
+    width: 100px;
+    height: 200px;
+    background: #3a3a3a;
+    border-radius: 10px;
+    position: relative;
+}
+
+.pillar {
+    display: none;
+}
+
+.flame {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 80px;
+    background: radial-gradient(circle,var(--light-blue-glow),transparent);
+    filter: blur(10px);
+    animation: flame 1.5s infinite alternate;
+}
+
+@keyframes flame {
+    from { transform: translateX(-50%) scale(0.9); }
+    to { transform: translateX(-50%) scale(1.1); }
+}
+
+/* CHARACTER CAROUSEL */
+.character-carousel {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+}
+
+.character-card {
+    width: 120px;
+    height: 160px;
+    margin-right: -20px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.character-card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.character-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-name {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    padding: 3px 8px;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+
+.misc-card {
+    width: 80px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.misc-icon {
+    width: 50px;
+    height: 50px;
+    background: gold;
+    border-radius: 50%;
+}
+
+/* PLAYER PROFILE TOP LEFT */
+.player-profile {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 15px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.player-profile:hover {
+    transform: scale(1.05);
+    border: 1px solid #00bfff;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, gold, orange);
+    border: 3px solid #00bfff;
+    box-shadow: 0 0 15px #00bfff;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.player-level {
+    font-size: 12px;
+    color: #ffd700;
+}
+
+.coin-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/ArgaCoin.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.diamond-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/argadiamond.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

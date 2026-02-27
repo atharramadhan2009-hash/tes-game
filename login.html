@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tes Game - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="login-container">
+
+        <div class="logo">Tes Game</div>
+        <h2>Login Account</h2>
+
+        <form id="loginForm">
+            
+            <div class="input-group">
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit" class="btn-login">LOGIN</button>
+
+            <p class="register">
+                Don't have account? <a href="register.html">Register</a>
+            </p>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    const savedUser = localStorage.getItem("username");
+    const savedPass = localStorage.getItem("password");
+
+    if(user === savedUser && pass === savedPass){
+        if(user === savedUser && pass === savedPass){
+    window.location.href = "loading.html";
+}
+    } else {
+        message.style.color = "#ff4d4d";
+        message.innerText = "Username atau Password salah!";
+    }
+    setTimeout(() => {
+        window.location.href = "loading .html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>
